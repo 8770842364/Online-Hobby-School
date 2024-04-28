@@ -1,0 +1,50 @@
+{% extends 'master_template.html' %}
+{% load static %}
+{% block slider %}
+{% endblock %}
+<div id="tooplate_menu">
+    {% block menu %}
+    <ul>
+        <li><a href="/studenthome/">  STUDENT HOME</a></li>
+        <li><a href="/studenthome/courselist3/">COURSE LIST</a></li>
+        
+        <li><a href="/studenthome/batchlist1/">UP BATCHES</a></li>
+        <li class="last"><a href="/studenthome/logout1/">LOG OUT</a></li></ul>
+    {% endblock %}
+    <div class="cleaner"></div>
+</div> <!-- end of tooplate_menu -->
+{% block content %}
+<div id="tooplate_main_top"></div>        
+<div id="tooplate_main">
+     <div class="col_w900 col_w900_last">
+        <div class="col_w580 float_l" style="height: 500px;">
+                <div class="con_tit_01">
+                    <span>****UPCOMMING BATCHES****</span></div>
+                    <br><form method="post">
+                    <table border="1" align="right" height="300" width="400" bgcolor="yellow">
+                        <tr>
+                            <th>Batch No</th>
+                            <th>course name</th>
+                            <th>duration</th>
+                            <th>fees</th>
+                            <th>start date</th>
+                            <th>batch time</th>
+                            <th>faculty name</th> 
+                            <th>Option</th>                           
+                        </tr>
+                        {% for r in res %}
+                        <tr>
+                            <td>{{ r.batchid }}</td>
+                            <td>{{ r.name }}</td>
+                            <td>{{ r.duration }}</td>
+                            <td>{{ r.fees }}</td>
+                            <td>{{ r.startdate }}</td>
+                            <td>{{ r.batchtime }}</td>
+                            <td>{{ r.facultyname }}</td>
+                            <td><a href="/studenthome/admission/?batchid={{ r.batchid }}">Select Batch</a></td>
+                        </tr>{% endfor %}
+                    </table></form>
+                <div class="cleaner"></div></div></div>
+    <div class="cleaner"></div>
+</div> <!-- end of main -->
+{% endblock %}

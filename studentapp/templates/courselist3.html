@@ -1,0 +1,43 @@
+{% extends 'master_template.html' %}
+{% load static %}
+{% block slider %}
+{% endblock %}
+<div id="tooplate_menu">
+    {% block menu %}
+    <ul>
+        <li><a href="/studenthome/" class="current">Student Home</a></li>
+        <li><a href="/studenthome/courselist3/">Course List</a></li>
+        <li><a href="/studenthome/batchlist1/">UP Batch</a></li>
+        <li><a href="/studenthome/logout1/"></a>Log Out</li></ul>
+    {% endblock %}
+    <div class="cleaner"></div>
+</div> <!-- end of tooplate_menu -->
+{% block content %}
+<div id="tooplate_main_top"></div>        
+<div id="tooplate_main">
+     <div class="col_w900 col_w900_last">
+        <div class="col_w580 float_l" style="height: 500px;">
+                <div class="con_tit_01">
+                    <span>****Course List****</span></div>
+                    <br><form method="post">
+                    <table border="1" align="right" height="300" width="400" bgcolor="sky blue">
+                        <tr>
+                            <th>course id</th>
+                            <th>course name</th>
+                            <th>duration</th>
+                            <th>fees</th>
+                            <th>Detail</th>                            
+                        </tr>
+                        {% for r in res %}
+                        <tr>
+                            <td>{{ r.courseid }}</td>
+                            <td>{{ r.name }}</td>
+                            <td>{{ r.duration }}</td>
+                            <td>{{ r.fees }}</td>
+                            <td>{{ r.detail}}</td>
+                        </tr>{% endfor %}
+                    </table></form>
+                <div class="cleaner"></div></div></div>
+    <div class="cleaner"></div>
+</div> <!-- end of main -->
+{% endblock %}

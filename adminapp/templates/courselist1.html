@@ -1,0 +1,44 @@
+{% extends 'master_template.html' %}
+{% load static %}
+{% block slider %}
+{% endblock %}
+<div id="tooplate_menu">
+    {% block menu %}
+    <ul><li><a href="/adminhome/" class="current">Admin Home</a></li><li>
+         <a href="/adminhome/addcourse1/">Add Course</a></li><li>
+        <a href="/adminhome/courselist1/">Course list</a></li>
+        <li><a href="/adminhome/addbatch1/">Add Batch</a>
+        </li> <li><a href="/adminhome/studentlist/">Student List</a></li> 
+        <li class="last"><a href="#"></a></li></ul>
+    {% endblock %}
+    <div class="cleaner"></div>
+</div> <!-- end of tooplate_menu -->
+{% block content %}
+<div id="tooplate_main_top"></div>        
+<div id="tooplate_main">
+     <div class="col_w900 col_w900_last">
+        <div class="col_w580 float_l" style="height: 400px;">
+                <div class="con_tit_01">
+                    <span>****Course List****</span></div>
+                    <br><form method="post">
+                    <table border="1" align="right" height="50" width="500" bgcolor="yellow">
+                        <tr>
+                            <th>Course Id</th>
+                            <th>Course Name</th>
+                            <th>Duration</th>
+                            <th>Fees</th>
+                            <th>Option</th>
+                        </tr>
+                        {% for r in res %}
+                        <tr>
+                            <td>{{ r.courseid }}</td>
+                            <td>{{ r.name }}</td>
+                            <td>{{ r.duration }}</td>
+                            <td>{{ r.fees }}</td>
+                            <td><a href="/adminhome/editcourse/?courseid={{ r.courseid }}">Edit</a></td>
+                        </tr>{% endfor %}
+                    </table></form>
+                <div class="cleaner"></div></div></div>
+    <div class="cleaner"></div>
+</div> <!-- end of main -->
+{% endblock %}
